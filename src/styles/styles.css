@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+  height: 3.125rem;
+  padding-top: 0.75rem;
+  background-color: #003580;
+  display: flex;
+  justify-content: center;
+}
+.navbar_container {
+  width: 100%;
+  max-width: 64rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar_container .logo {
+  font-weight: 500;
+}
+.navbar_button {
+  position: relative;
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  color: #0071c2;
+  margin-left: 1.25rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
+.navbar_button:is(:last-child) {
+  margin-right: 1.25rem;
+}
+.navbar_button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
+  border-color: #0071c2;
+  border: 1px solid #0071c2;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #003580;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.header_container {
+  width: 100%;
+  max-width: 64rem;
+  margin: 1.25rem 0 6.25rem 0;
+}
+.header_list {
+  display: flex;
+  gap: 2.5rem;
+}
+.header_list_item {
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.header_list_item.active {
+  border: 0.0625rem solid white;
+  padding: 0.625rem;
+  border-radius: 1.25rem;
+  background-color: hsla(0deg, 0%, 100%, 0.1);
+}
+.header_title {
+  font-size: 3rem;
+}
+.header_description {
+  font-size: 1.5rem;
+  margin: 1.25rem 0;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,47 @@
+.navbar{
+  height: 3.125rem;
+  padding-top: 0.75rem;
+  background-color: $blue;
+  display: flex;
+  justify-content: center;
+
+  &_container{
+    width: 100%;
+    max-width: 64rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo{
+      font-weight: 500;
+    }
+
+    
+  }
+  &_button{
+    position: relative;
+    font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;;
+    font-weight: 500;
+    color: $lightBlue;
+    margin-left: 1.25rem;
+    padding: 0.5rem 1rem;
+    border:none;
+    cursor: pointer;
+    &:is(:last-child) {
+      margin-right: 1.25rem;
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: transparent;
+      border-color: #0071c2;
+      border: 1px solid #0071c2;
+      box-sizing: border-box;
+    }
+  }
+}
