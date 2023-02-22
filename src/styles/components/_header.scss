@@ -3,6 +3,9 @@
   color: white;
   display: flex;
   justify-content: center;
+  padding: 0 20px;
+  background-color: $blue;
+  
   &_container{
     width: 100%;
     max-width: 64rem;
@@ -17,12 +20,21 @@
       font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 0.625rem;
+      padding: 11px;
       &.active{
         border: 0.0625rem solid white;
-        padding: 0.625rem;
+        padding: 10px;
         border-radius: 1.25rem;
         background-color: $blueHover
+      }
+      &:hover{
+        &:not(.active) {
+          padding: 11px;
+          border-radius: 1.25rem;
+          background-color: $blueHover;
+          cursor: pointer;
+        }
       }
     }
   }
