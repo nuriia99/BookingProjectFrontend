@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeaderListItem from './HeaderListItem'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBed, faCalendar, faUser } from '@fortawesome/free-solid-svg-icons'
+import { DateRange } from 'react-date-range'
+import 'react-date-range/dist/styles.css' // main style file
+import 'react-date-range/dist/theme/default.css' // theme css file
+import { getDate } from '../../utils/utils'
 
 const Header = () => {
+  const [date, setDate] = useState(false)
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection'
+    }
+  ])
+
   return (
     <div className='header'>
       <div className="header_container">
@@ -14,6 +29,39 @@ const Header = () => {
         </div>
         <h1 className="header_title">Find your next stay</h1>
         <p className="header_description">Search low prices on hotels, homes and much more...</p>
+        <button className="btn_header">Sign in / Register</button>
+      </div>
+      <div className="header_search">
+        <div className="header_search_item header_search_place">
+          <span>
+            <FontAwesomeIcon className='icon' icon={faBed} />
+            <input type="text" placeholder='Where are you going?'/>
+          </span>
+        </div>
+        <div className="header_search_item header_search_time">
+          <span>
+            <FontAwesomeIcon className='icon' icon={faCalendar} />
+            <span onClick={() => setDate(prev => !prev)}>{getDate(state[0].startDate)} - {getDate(state[0].endDate)} </span>
+            {
+              date && <DateRange
+                    editableDateInputs={true}
+                    onChange={item => setState([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={state}
+                    className='date'
+                  />
+            }
+          </span>
+        </div>
+        <div className="header_search_item header_search_settings">
+          <span>
+            <FontAwesomeIcon className='icon' icon={faUser} />
+            <span>1 adult · 0 children · 1 room</span>
+          </span>
+        </div>
+        <div className="header_search_item header_search_button">
+          <button className="btn_header">Search</button>
+        </div>
       </div>
     </div>
   )

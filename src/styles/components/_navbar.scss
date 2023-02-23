@@ -30,6 +30,7 @@
     padding: 0.5rem 1rem;
     border:none;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
     &:is(:last-child) {
       margin-right: 1.25rem;
     }
@@ -44,6 +45,9 @@
       border-color: #0071c2;
       border: 1px solid #0071c2;
       box-sizing: border-box;
+    }
+    &:hover{
+      background-color: $whiteHover;
     }
   }
 }

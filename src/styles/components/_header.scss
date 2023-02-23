@@ -2,9 +2,29 @@
   background-color: $blue;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 0 20px;
   background-color: $blue;
+  position: relative;
+
+  .btn_header{
+    background-color: $blue2;
+    border-radius: 2px;
+    width: 9.375rem;
+    height: 3.125rem;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    transition: background-color 0.15s ease-in;
+  
+    &:hover{
+      background-color: $darkBlue;
+    }
+  }
   
   &_container{
     width: 100%;
@@ -47,6 +67,110 @@
     font-size: 1.5rem;
     margin: 1.25rem 0;
   }
+
+  &_search{
+    width: 100%;
+    max-width: 64rem;
+    height: 3.875rem;
+    background-color: $orange;
+    justify-self: end;
+    position: absolute;
+    bottom: -30px;
+    border-radius: 0.125rem;
+    display: flex;
+    margin: 0 20px;
+    
+
+    &_item{
+      height: 3.375rem;
+      margin: 0.25rem;
+      border-radius: 0.125rem;
+      background-color: white;
+      color: $grey;
+      padding: 0.5rem;
+      padding-left: 1rem;
+      box-sizing: border-box;
+      
+
+    }
+
+    &_place{
+      flex: 1;
+      margin-right: 0.125rem;
+      min-width: 280px;
+      .icon{
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+
+    &_time{
+      margin-left: 0.125rem;
+      margin-right: 0.125rem;
+      width: 280px;
+      .icon{
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+      span{
+        cursor: pointer;
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+      .date{
+        position: absolute;
+        top: 62px;
+      }
+    }
+
+    &_settings{
+      margin-left: 0.125rem;
+      width: 280px;
+      .icon{
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+      span{
+        cursor: pointer;
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+    }
+
+
+    &_button{
+      padding: 0;
+      .btn_header{
+        width: 100%;
+        min-width: 108px;
+        height: 100%;
+        padding: 0;
+        font-size: 20px;
+      }
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      column-gap: 0.625rem;
+      height: 100%;
+      font-weight: 500;
+    }
+
+    input, ::-webkit-input-placeholder, span{
+      border: none;
+      outline: none;
+      font-weight: 500;
+      color: $blackLight;
+      font-size: 0.875rem;
+    }
+
+    
+  }
+
+  
 
 
 }
