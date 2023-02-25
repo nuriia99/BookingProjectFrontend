@@ -1,4 +1,5 @@
 body {
+  min-height: 1000px;
   margin: 0;
   font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
@@ -104,12 +105,12 @@ input {
   border: 0.0625rem solid white;
   padding: 10px;
   border-radius: 1.25rem;
-  background-color: hsla(0deg, 0%, 100%, 0.1);
+  background-color: hsla(0, 0%, 100%, 0.1);
 }
 .header_list_item:hover:not(.active) {
   padding: 11px;
   border-radius: 1.25rem;
-  background-color: hsla(0deg, 0%, 100%, 0.1);
+  background-color: hsla(0, 0%, 100%, 0.1);
   cursor: pointer;
 }
 .header_title {
@@ -165,9 +166,15 @@ input {
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
+.header_search_time .date {
+  position: absolute;
+  top: 62px;
+}
 .header_search_settings {
   margin-left: 0.125rem;
-  width: 280px;
+  width: 17.5rem;
+  box-sizing: border-box;
+  position: relative;
 }
 .header_search_settings .icon {
   height: 1.25rem;
@@ -179,8 +186,45 @@ input {
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
 }
+.header_search_settings_container {
+  height: 9.375rem;
+  width: 100%;
+  min-width: 13.75rem;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  box-sizing: border-box;
+  position: absolute;
+  top: 3.625rem;
+  left: 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.header_search_settings_container_item {
+  display: flex;
+  padding: 0.3125rem 1.25rem;
+  justify-content: space-between;
+}
+.header_search_settings_container_item span {
+  cursor: default;
+}
+.header_search_settings_container_item_counter {
+  display: flex;
+  justify-content: space-around;
+  width: 7.5rem;
+  height: 1.875rem;
+  border: 1px solid #6b6b6b;
+  border-radius: 3px;
+}
+.header_search_settings_container_item_counter button {
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+}
 .header_search_button {
   padding: 0;
+  margin-left: 0;
 }
 .header_search_button .btn_header {
   width: 100%;

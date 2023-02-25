@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import HeaderListItem from './HeaderListItem'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faCalendar, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBed, faCalendar, faMinus, faPlus, faUser } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range'
 import 'react-date-range/dist/styles.css' // main style file
 import 'react-date-range/dist/theme/default.css' // theme css file
 import { getDate } from '../../utils/utils'
 
 const Header = () => {
+  const [activeCounter, setActiveCounter] = useState(false)
   const [date, setDate] = useState(false)
   const [state, setState] = useState([
     {
@@ -16,6 +17,21 @@ const Header = () => {
       key: 'selection'
     }
   ])
+  const [settings, setSettings] = useState({
+    adult: 0,
+    children: 0,
+    room: 0
+  })
+  console.log(settings)
+  const handleClickCounter = (name, type) => {
+    setSettings(prev => {
+      const value = type === 0 ? prev[name] - 1 : prev[name] + 1
+      return ({
+        ...prev,
+        [name]: value
+      })
+    })
+  }
 
   return (
     <div className='header'>
@@ -56,8 +72,36 @@ const Header = () => {
         <div className="header_search_item header_search_settings">
           <span>
             <FontAwesomeIcon className='icon' icon={faUser} />
-            <span>1 adult · 0 children · 1 room</span>
+            <span onClick={() => setActiveCounter(prev => !prev)}>1 adult · 0 children · 1 room</span>
           </span>
+          {
+            activeCounter && <div className="header_search_settings_container">
+              <div className="header_search_settings_container_item">
+                <span>Adult</span>
+                <div className="header_search_settings_container_item_counter">
+                  <button onClick={() => handleClickCounter('adult', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
+                  <span>{settings.adult}</span>
+                  <button onClick={() => handleClickCounter('adult', 1)}><FontAwesomeIcon className='icon' icon={faPlus}/></button>
+                </div>
+              </div>
+              <div className="header_search_settings_container_item">
+                <span>Children</span>
+                <div className="header_search_settings_container_item_counter">
+                <button onClick={() => handleClickCounter('children', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
+                  <span>{settings.children}</span>
+                  <button onClick={() => handleClickCounter('children', 1)}><FontAwesomeIcon className='icon' icon={faPlus}/></button>
+                </div>
+              </div>
+              <div className="header_search_settings_container_item">
+                <span>Room</span>
+                <div className="header_search_settings_container_item_counter">
+                <button onClick={() => handleClickCounter('room', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
+                  <span>{settings.room}</span>
+                  <button onClick={() => handleClickCounter('room', 1)}><FontAwesomeIcon className='icon' icon={faPlus}/></button>
+                </div>
+              </div>
+            </div>
+          }
         </div>
         <div className="header_search_item header_search_button">
           <button className="btn_header">Search</button>
