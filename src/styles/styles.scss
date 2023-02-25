@@ -3,5 +3,7 @@
 @import './base/global';
 
 //components
-@import './components/navbar';
-@import './components/header';
+@import '../components/navbar/navbar';
+@import '../components/header/header';
+@import '../pages/home/home';
+@import '../components/featured/featured';

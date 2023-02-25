@@ -1,16 +1,18 @@
 import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
+import Featured from '../../components/featured/Featured'
 
 const Home = () => {
   return (
       <div>
-        <section>
-          <Navbar/>
-        </section>
-        <section>
-          <Header/>
-        </section>
+        <Navbar/>
+        <Header/>
+        <div className="home">
+          <div className="home_container">
+            <Featured/>
+          </div>
+        </div>
       </div>
   )
 }

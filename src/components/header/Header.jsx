@@ -18,9 +18,9 @@ const Header = () => {
     }
   ])
   const [settings, setSettings] = useState({
-    adult: 0,
+    adult: 1,
     children: 0,
-    room: 0
+    room: 1
   })
   console.log(settings)
   const handleClickCounter = (name, type) => {
@@ -72,14 +72,14 @@ const Header = () => {
         <div className="header_search_item header_search_settings">
           <span>
             <FontAwesomeIcon className='icon' icon={faUser} />
-            <span onClick={() => setActiveCounter(prev => !prev)}>1 adult · 0 children · 1 room</span>
+            <span onClick={() => setActiveCounter(prev => !prev)}>{settings.adult} adult · {settings.children} children · {settings.room} room</span>
           </span>
           {
             activeCounter && <div className="header_search_settings_container">
               <div className="header_search_settings_container_item">
                 <span>Adult</span>
                 <div className="header_search_settings_container_item_counter">
-                  <button onClick={() => handleClickCounter('adult', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
+                  <button disabled={settings.adult <= 1} onClick={() => handleClickCounter('adult', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
                   <span>{settings.adult}</span>
                   <button onClick={() => handleClickCounter('adult', 1)}><FontAwesomeIcon className='icon' icon={faPlus}/></button>
                 </div>
@@ -87,7 +87,7 @@ const Header = () => {
               <div className="header_search_settings_container_item">
                 <span>Children</span>
                 <div className="header_search_settings_container_item_counter">
-                <button onClick={() => handleClickCounter('children', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
+                <button disabled={settings.children <= 0} onClick={() => handleClickCounter('children', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
                   <span>{settings.children}</span>
                   <button onClick={() => handleClickCounter('children', 1)}><FontAwesomeIcon className='icon' icon={faPlus}/></button>
                 </div>
@@ -95,7 +95,7 @@ const Header = () => {
               <div className="header_search_settings_container_item">
                 <span>Room</span>
                 <div className="header_search_settings_container_item_counter">
-                <button onClick={() => handleClickCounter('room', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
+                <button disabled={settings.room <= 1} onClick={() => handleClickCounter('room', 0)}><FontAwesomeIcon className='icon' icon={faMinus}/></button>
                   <span>{settings.room}</span>
                   <button onClick={() => handleClickCounter('room', 1)}><FontAwesomeIcon className='icon' icon={faPlus}/></button>
                 </div>
