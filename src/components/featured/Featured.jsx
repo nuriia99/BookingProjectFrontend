@@ -1,24 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SwiperCore, { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { CardImage } from './CardImage'
+import Romance from './Romance'
+import City from './City'
+import Beach from './Beach'
+import Outdoors from './Outdoors'
+import Relax from './Relax'
+import Ski from './Ski'
 
 const Featured = () => {
   SwiperCore.use([Navigation])
+
+  const [planner, setPlanner] = useState('romance')
+
   return (
     <div className='featured'>
-      <div className="featured_item_offers">
+      <div className="featured_item offers">
         <h2>Offers</h2>
         <p>Promotions, deals and special offers for you</p>
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView={1}
-          spaceBetween={10} breakpoints={{
-            1034: {
-              slidesPerView: 2,
-              spaceBetween: 10
-            }
-          }}>
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView='auto' spaceBetween={15}>
           <SwiperSlide>
             <div className="card_offers">
               <div className="card_offers_fly">
@@ -48,21 +51,8 @@ const Featured = () => {
       <div className="featured_item">
         <h2>Explore Spain</h2>
         <p>These popular destinations have a lot to offer</p>
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView={1}
-          spaceBetween={10} breakpoints={{
-            632: {
-              slidesPerView: 4,
-              spaceBetween: 20
-            },
-            823: {
-              slidesPerView: 5,
-              spaceBetween: 20
-            },
-            982: {
-              slidesPerView: 6,
-              spaceBetween: 20
-            }
-          }}>
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView='auto'
+          spaceBetween={15} >
           <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/645962.jpg?k=2356102edee342d7d86243493004e8c038854fa0ecdaf79b84e85ce609aaa4e2&o=' title='Seville' properties='3,352 properties'/></SwiperSlide>
           <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/968315.jpg?k=14d0bad185930ec2663562b999ecf498fb6fcf492c16a4c33228504a15e2d119&o=' title='Barcelona' properties='3,303 properties'/></SwiperSlide>
           <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/646053.jpg?k=e3ce89e2a1378141324ec06b415751bd63f06cb085a0eda3c915e16cc073bf8b&o=' title='Valencia' properties='2,152 properties'/></SwiperSlide>
@@ -73,6 +63,50 @@ const Featured = () => {
           <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/region/300x240/49005.jpg?k=1919909ccea6870002670f6841ffe83a20a00cb959e253dace751918ef885135&o=' title='Tenerife' properties='9,602 properties'/></SwiperSlide>
           <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/971913.jpg?k=4fb9a4a41b53b5a6e0764e4494290fb3170a60d1850e332e7f1b4d430655085e&o=' title='Córdoba' properties='1,158 properties'/></SwiperSlide>
         </Swiper>
+      </div>
+      <div className="featured_item planner">
+        <h2>Quick and easy trip planner</h2>
+        <p>Pick a vibe and explore the top destinations in Spain</p>
+        <div className="planner_buttons">
+          <button onClick={() => setPlanner('romance')} className={planner === 'romance' ? 'btn_white active' : 'btn_white'} name='romance'><img src="images/heart.svg" alt="image" /> Romance</button>
+          <button onClick={() => setPlanner('city')} className={planner === 'city' ? 'btn_white active' : 'btn_white'} name='city'><img src="images/city.svg" alt="image" /> City</button>
+          <button onClick={() => setPlanner('beach')} className={planner === 'beach' ? 'btn_white active' : 'btn_white'} name='beach'><img src="images/beach.svg" alt="image" /> Beach</button>
+          <button onClick={() => setPlanner('outdoors')} className={planner === 'outdoors' ? 'btn_white active' : 'btn_white'} name='outdoors'><img src="images/bicycle.svg" alt="image" /> Outdoors</button>
+          <button onClick={() => setPlanner('ski')} className={planner === 'ski' ? 'btn_white active' : 'btn_white'} name='ski'><img src="images/ski.svg" alt="image" /> Ski</button>
+          <button onClick={() => setPlanner('relax')} className={planner === 'relax' ? 'btn_white active' : 'btn_white'} name='relax'><img src="images/flower.svg" alt="image" /> Relax</button>
+        </div>
+        <div className="planner_cards">
+          {
+            {
+              romance: <Romance></Romance>,
+              city: <City></City>,
+              beach: <Beach></Beach>,
+              outdoors: <Outdoors></Outdoors>,
+              ski: <Ski></Ski>,
+              relax: <Relax></Relax>
+            }[planner]
+          }
+        </div>
+      </div>
+      <div className="featured_item inspiration">
+        <h2>Get inspiration for your next trip</h2>
+        <div className="inspiration_cards">
+          <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView='auto'
+            spaceBetween={15} >
+            <SwiperSlide className='bigger'>
+              <div className="main_image">
+              </div>
+              <div className="main_image_text">
+                <h3>9 natural underground swimming pools</h3>
+                <p>Explore hidden beaches, kaleidoscopic grottos and subterranean pools.</p>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/540x405/196284125.jpg?k=9bda565c6a99f647fd60119e0bb098e9efff57840b3dea388695b5b13f3edfbd&o=' title='7 chic places to stay in Paris, France' properties='Featuring opulent suites and quintessentially Parisian boutique hotels. '/></SwiperSlide>
+            <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/540x405/195762106.jpg?k=0e7f1a78baf576759aaee56430a369a782ef03811c10f17675cfaa0a93da190a&o=' title='2023 Sydney WorldPride: The Guide' properties='How to celebrate the southern hemisphere’s first WorldPride, hosted in spectacular Sydney.'/></SwiperSlide>
+            <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/700x350/191445417.jpg?k=158eec3229f0447f2259710f61b7190c8912fd6fcdf8bc95812346c78365d5db&o=' title='Top places in Japan to see cherry blossoma' properties='For picture-perfect pink scenes and picnics, head to Japan for sakura season.'/></SwiperSlide>
+            <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/540x405/194638265.jpg?k=c0e9506aba1aba9344c84fc3f3cd9d0ef3cd094fe3de8bc4fe28be17cba92603&o=' title='Where to experience spring break in the US' properties='Featuring frosty mountain hot springs and white sand beaches with parties aplenty.'/></SwiperSlide>
+          </Swiper>
+        </div>
       </div>
     </div>
   )
