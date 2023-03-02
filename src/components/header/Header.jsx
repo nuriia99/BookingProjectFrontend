@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import HeaderListItem from './HeaderListItem'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faCalendar, faMinus, faPlus, faUser } from '@fortawesome/free-solid-svg-icons'
@@ -8,6 +8,8 @@ import 'react-date-range/dist/theme/default.css' // theme css file
 import { getDate } from '../../utils/utils'
 
 const Header = () => {
+  const refDate = useRef(null)
+  const refCounter = useRef(null)
   const [activeCounter, setActiveCounter] = useState(false)
   const [date, setDate] = useState(false)
   const [state, setState] = useState([
@@ -22,7 +24,11 @@ const Header = () => {
     children: 0,
     room: 1
   })
-  console.log(settings)
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true)
+  }, [])
+
   const handleClickCounter = (name, type) => {
     setSettings(prev => {
       const value = type === 0 ? prev[name] - 1 : prev[name] + 1
@@ -31,6 +37,21 @@ const Header = () => {
         [name]: value
       })
     })
+  }
+
+  const handleActiveCounter = () => {
+    setActiveCounter(prev => !prev)
+    setDate(false)
+  }
+
+  const handleActiveDate = () => {
+    setDate(prev => !prev)
+    setActiveCounter(false)
+  }
+
+  const handleClickOutside = (e) => {
+    if (!refDate.current.contains(e.target)) setDate(false)
+    if (!refCounter.current.contains(e.target)) setActiveCounter(false)
   }
 
   return (
@@ -54,10 +75,10 @@ const Header = () => {
             <input type="text" placeholder='Where are you going?'/>
           </span>
         </div>
-        <div className="header_search_item header_search_time">
-          <span>
+        <div ref={refDate} className="header_search_item header_search_time">
+          <span onClick={handleActiveDate}>
             <FontAwesomeIcon className='icon' icon={faCalendar} />
-            <span onClick={() => setDate(prev => !prev)}>{getDate(state[0].startDate)} - {getDate(state[0].endDate)} </span>
+            <span>{getDate(state[0].startDate)} - {getDate(state[0].endDate)} </span>
             {
               date && <DateRange
                     editableDateInputs={true}
@@ -69,10 +90,10 @@ const Header = () => {
             }
           </span>
         </div>
-        <div className="header_search_item header_search_settings">
-          <span>
+        <div ref={refCounter} className="header_search_item header_search_settings">
+          <span onClick={handleActiveCounter}>
             <FontAwesomeIcon className='icon' icon={faUser} />
-            <span onClick={() => setActiveCounter(prev => !prev)}>{settings.adult} adult · {settings.children} children · {settings.room} room</span>
+            <span>{settings.adult} adult · {settings.children} children · {settings.room} room</span>
           </span>
           {
             activeCounter && <div className="header_search_settings_container">

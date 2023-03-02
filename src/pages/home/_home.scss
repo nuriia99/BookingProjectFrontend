@@ -10,7 +10,13 @@
     justify-content: center;
     width: 100%;
     height: fit-content;
+    box-sizing: border-box;
     padding: 0 100px;
     margin-top: 50px;
+
+    @include breakpoint-down(medium){
+      padding: 0 20px;
+      padding-top: 130px;
+    }
   }
 }

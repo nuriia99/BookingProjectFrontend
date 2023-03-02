@@ -1,4 +1,5 @@
 //base
+@import './base/mixins';
 @import './base/variables';
 @import './base/global';
 
@@ -7,3 +8,4 @@
 @import '../components/header/header';
 @import '../pages/home/home';
 @import '../components/featured/featured';
+@import '../components/footer/footer';

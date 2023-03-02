@@ -11,15 +11,12 @@ const Outdoors = () => {
   return (
     <>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView='auto' spaceBetween={15}>
-        <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/645962.jpg?k=2356102edee342d7d86243493004e8c038854fa0ecdaf79b84e85ce609aaa4e2&o=' title='Seville' properties='3,352 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/968315.jpg?k=14d0bad185930ec2663562b999ecf498fb6fcf492c16a4c33228504a15e2d119&o=' title='Barcelona' properties='3,303 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/646053.jpg?k=e3ce89e2a1378141324ec06b415751bd63f06cb085a0eda3c915e16cc073bf8b&o=' title='Valencia' properties='2,152 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://r-xx.bstatic.com/xdata/images/city/300x240/645280.jpg?k=b9136ae0892b4ec0cb4c561867bb057afdff4297e53652039f41488a9549572e&o=' title='Granada' properties='1,453 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/971353.jpg?k=a5b47d2c38469086427837dfe64ab2e6f57ba52f0504359ef4cc02dc4b9b0737&o=' title='Madrid' properties='5,758 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://r-xx.bstatic.com/xdata/images/city/300x240/645577.jpg?k=81d61cb4e120af4d4218386546a117b77ef18dfcf3727d186ec3a1aad60f38fe&o=' title='Málaga' properties='3,904 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://r-xx.bstatic.com/xdata/images/region/300x240/48980.jpg?k=8c7ce0bf56a2b44fb1e9d6e5f87be1cec71fa9773817c90960a0502169d155cf&o=' title='Majorca' properties='10,768 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/region/300x240/49005.jpg?k=1919909ccea6870002670f6841ffe83a20a00cb959e253dace751918ef885135&o=' title='Tenerife' properties='9,602 properties'/></SwiperSlide>
-        <SwiperSlide><CardImage src='https://q-xx.bstatic.com/xdata/images/city/300x240/971913.jpg?k=4fb9a4a41b53b5a6e0764e4494290fb3170a60d1850e332e7f1b4d430655085e&o=' title='Córdoba' properties='1,158 properties'/></SwiperSlide>
+        <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/300x240/140037995.jpg?k=e0a2d7b8c3c2a04905b4807f461b088109aad93db224b8e8ea767ddb20ce69f8&o=' title='Taull' properties='475 km away'/></SwiperSlide>
+        <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/300x240/140037750.jpg?k=388d802dbfc8c2b97e58bf9dcd2fc1350f9c164827f0726c1b6cb3419962c854&o=' title='Vielha' properties='45 km away'/></SwiperSlide>
+        <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/300x240/140037932.jpg?k=714b21a598fef0abe0c509f7ad7a4ec948fab35f46d9340db56898137b31e149&o=' title='Torla' properties='367 km away'/></SwiperSlide>
+        <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/300x240/140037631.jpg?k=746b26930d69f20ca07d7ba20e6f3f0f160399f28e0937ec494efb73bf02bef8&o=' title='Zahara de la Sierra' properties='23 km away'/></SwiperSlide>
+        <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/300x240/140037970.jpg?k=b8a74f3df0a338a2134d6808f98d744763cb008c2ad193745988386ae1398abf&o=' title='Tejeda' properties='754 km away'/></SwiperSlide>
+        <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/300x240/140037796.jpg?k=a9705aff5f6ab7eba95aafa9b6f4cd458d4696500dab273c4fc1f73643068257&o=' title='Vallehermoso' properties='85 km away'/></SwiperSlide>
       </Swiper>
     </>
   )

@@ -34,8 +34,12 @@
 
   &_list{
     display: flex;
+    flex-wrap: wrap;
     gap: 2.5rem;
     &_item{
+      -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
       font-size: 0.875rem;
       font-weight: 500;
       display: flex;
@@ -79,7 +83,6 @@
     border-radius: 6px;
     display: flex;
     margin: 0 20px;
-    
 
     &_item{
       height: 3.375rem;
@@ -122,6 +125,7 @@
       .date{
         position: absolute;
         top: 62px;
+        left: 0rem;
       }
     }
 
@@ -197,6 +201,21 @@
         padding: 0;
         font-size: 20px;
         border-radius: 6px;
+      }
+    }
+
+    @include breakpoint-down(medium){
+      flex-direction: column;
+      align-items: center;
+      height: fit-content;
+      width: calc(100% - 20px);
+      bottom: -10.3125rem;
+      &_item:not(.header_search_button){
+        width: calc(100% - 10px);
+        box-sizing: border-box;
+      }
+      &_button{
+        width: calc(100% - 10px);
       }
     }
 

@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { CardImage } from './CardImage'
+import { CardImageMark } from './CardImageMark'
 import Romance from './Romance'
 import City from './City'
 import Beach from './Beach'
@@ -89,7 +90,10 @@ const Featured = () => {
         </div>
       </div>
       <div className="featured_item inspiration">
-        <h2>Get inspiration for your next trip</h2>
+        <div className="inspiration_header">
+          <h2>Get inspiration for your next trip</h2>
+          <a href="">More</a>
+        </div>
         <div className="inspiration_cards">
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView='auto'
             spaceBetween={15} >
@@ -105,6 +109,18 @@ const Featured = () => {
             <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/540x405/195762106.jpg?k=0e7f1a78baf576759aaee56430a369a782ef03811c10f17675cfaa0a93da190a&o=' title='2023 Sydney WorldPride: The Guide' properties='How to celebrate the southern hemisphere’s first WorldPride, hosted in spectacular Sydney.'/></SwiperSlide>
             <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/700x350/191445417.jpg?k=158eec3229f0447f2259710f61b7190c8912fd6fcdf8bc95812346c78365d5db&o=' title='Top places in Japan to see cherry blossoma' properties='For picture-perfect pink scenes and picnics, head to Japan for sakura season.'/></SwiperSlide>
             <SwiperSlide><CardImage src='https://cf.bstatic.com/xdata/images/xphoto/540x405/194638265.jpg?k=c0e9506aba1aba9344c84fc3f3cd9d0ef3cd094fe3de8bc4fe28be17cba92603&o=' title='Where to experience spring break in the US' properties='Featuring frosty mountain hot springs and white sand beaches with parties aplenty.'/></SwiperSlide>
+          </Swiper>
+        </div>
+      </div>
+      <div className="featured_item properties">
+        <h2>Homes guests love</h2>
+        <div className="properties_cards">
+          <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView='auto'
+            spaceBetween={15} >
+            <SwiperSlide><CardImageMark src='https://cf.bstatic.com/xdata/images/hotel/square600/421853145.webp?k=140bfc6c54ee753d4a748ee7b5a86c00c988e6fc9bb340c87172ead66a3ea9d5&o=&s=1' title='6 Continents Apartments by Prague Residences' properties='Prague 1, Czech Republic, Prague' price='€ 102' mark='8.3' reviews='Very good  - 248 reviews'/></SwiperSlide>
+            <SwiperSlide><CardImageMark src='https://cf.bstatic.com/xdata/images/hotel/square600/44146554.webp?k=bc461f3aff9a66c15ddae3b3a7e10a44f6aea550cb89ce292cec7ca0b4ccecdb&o=&s=1' title='Villa Domina' properties='Split City Centre, Croatia, Split' price='€ 45' mark='9.4' reviews='Superb  - 1,024 reviews'/></SwiperSlide>
+            <SwiperSlide><CardImageMark src='https://cf.bstatic.com/xdata/images/hotel/square600/87428762.webp?k=9a065fcd92168145d8c8358701662c76793535597b678efc8f6921c8e3c188e6&o=&s=1' title='7Seasons Apartments Budapest' properties='06. Terézváros, Hungary, Budapest' price='€ 108' mark='8.8' reviews='Fabulous  - 7,243 reviews'/></SwiperSlide>
+            <SwiperSlide><CardImageMark src='https://cf.bstatic.com/xdata/images/hotel/square600/352170812.webp?k=75ffc5f9eb3f3cc394b901714c1544757b05849dbbdf30e4fc8c6df53931c131&o=&s=1' title='numa I Vita Apartments' properties='Fortezza da Basso, Italy, Florence' price='€ 92' mark='9.3' reviews='Superb  - 923 reviews'/></SwiperSlide>
           </Swiper>
         </div>
       </div>
