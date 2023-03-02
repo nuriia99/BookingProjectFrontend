@@ -44,7 +44,8 @@ const Header = () => {
     setDate(false)
   }
 
-  const handleActiveDate = () => {
+  const handleActiveDate = (e) => {
+    console.log(e)
     setDate(prev => !prev)
     setActiveCounter(false)
   }
@@ -53,7 +54,6 @@ const Header = () => {
     if (!refDate.current.contains(e.target)) setDate(false)
     if (!refCounter.current.contains(e.target)) setActiveCounter(false)
   }
-
   return (
     <div className='header'>
       <div className="header_container">
@@ -79,7 +79,8 @@ const Header = () => {
           <span onClick={handleActiveDate}>
             <FontAwesomeIcon className='icon' icon={faCalendar} />
             <span>{getDate(state[0].startDate)} - {getDate(state[0].endDate)} </span>
-            {
+          </span>
+          {
               date && <DateRange
                     editableDateInputs={true}
                     onChange={item => setState([item.selection])}
@@ -88,7 +89,6 @@ const Header = () => {
                     className='date'
                   />
             }
-          </span>
         </div>
         <div ref={refCounter} className="header_search_item header_search_settings">
           <span onClick={handleActiveCounter}>
