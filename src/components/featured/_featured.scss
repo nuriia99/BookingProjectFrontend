@@ -184,6 +184,9 @@
             background-color: $lightGrey;
           }
         }
+        @include breakpoint-down(medium){
+          justify-content: center;
+        }
       }
 
       .planner_cards{
@@ -269,6 +272,9 @@
       padding-top: 1.875rem;
       h2{
         padding-bottom: 1.25rem;
+      }
+      .swiper-button-next, .swiper-button-prev{
+        top: 110px;
       }
       .properties_cards{
 

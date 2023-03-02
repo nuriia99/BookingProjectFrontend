@@ -30,6 +30,15 @@
     width: 100%;
     max-width: 64rem;
     margin: 1.25rem 0 6.25rem 0;
+    @include breakpoint-down(medium){
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p, h1{
+        text-align: center;
+      }
+    }
+    
   }
 
   &_list{
@@ -38,8 +47,8 @@
     gap: 2.5rem;
     &_item{
       -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
       font-size: 0.875rem;
       font-weight: 500;
       display: flex;
@@ -60,6 +69,11 @@
           cursor: pointer;
         }
       }
+
+    }
+    @include breakpoint-down(medium){
+      justify-content: center;
+      text-align: center;
     }
   }
 
@@ -213,6 +227,9 @@
       &_item:not(.header_search_button){
         width: calc(100% - 10px);
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       &_button{
         width: calc(100% - 10px);
